@@ -5,15 +5,16 @@ const Profile =()=>{
     let [data,setData] = useState({});
     // let obj;
     useEffect(()=>{
-      axios.get(`https://dummyjson.com/users/${localStorage.getItem('loginUser')
-    }`)
+      let id = localStorage.getItem('loginUser')
+
+      axios.get(`https://dummyjson.com/users/${id}`)
       .then((response)=> {console.log(response.data)
         setData(response.data)
       })
       .catch(()=> console.log("Error"))
-    },[localStorage.getItem('loginUser')
-  ]
-)
+    }
+  
+,[])
     
    
     return (
@@ -21,6 +22,7 @@ const Profile =()=>{
             
           {
            <div>
+            
             <img src={data.image} alt="" />
             <p>id:{data.id}</p>
             <p>userName:{data.username}</p>
