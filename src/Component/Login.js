@@ -56,7 +56,7 @@ async function loginUser(credentials) {
       setToken(token);
       console.log(token)
       if(token.message==="Invalid credentials"){
-        console.log("hiiii")
+      
         alert("No username is found ,username and password is invalid")
       }else{
               Navigate('/profile')
